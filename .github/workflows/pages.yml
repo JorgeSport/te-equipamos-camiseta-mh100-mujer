@@ -22,6 +22,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Añadir recomendaciones Te Equipamos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page = Path('gh-pages/index.html')
+          html = page.read_text(encoding='utf-8')
+          css = '<link rel="stylesheet" href="https://jorgesport.github.io/te-equipamos-arpenaz-27l/related-content.css">'
+          js = '<script src="https://jorgesport.github.io/te-equipamos-arpenaz-27l/related-content.js"></script>'
+          if css not in html:
+              html = html.replace('</head>', css + '</head>', 1)
+          if js not in html:
+              html = html.replace('</body>', js + '</body>', 1)
+          page.write_text(html, encoding='utf-8')
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
