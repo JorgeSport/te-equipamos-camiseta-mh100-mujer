@@ -1,0 +1,20 @@
+{
+  "brand": "Te Equipamos",
+  "items": [
+    {
+      "active": true,
+      "type": "sale",
+      "sections": ["Ventas", "Novedades"],
+      "title": "Ligera, transpirable y pensada para caminar: una camiseta sencilla con lo importante bien resuelto",
+      "summary": "Camiseta Quechua MH100 de mujer para montaña y trekking, con tejido transpirable y secado rápido.",
+      "details": "Landing de venta de Te Equipamos con variantes, tallas y consulta de disponibilidad.",
+      "url": "https://jorgesport.github.io/te-equipamos-camiseta-mh100-mujer/",
+      "image": "https://contents.mediadecathlon.com/p2643977/k$0f01fba00d839c4526837db1ed1a997c/picture.jpg?f=1600x0&format=auto",
+      "time": "Producto · Mujer",
+      "score": 96,
+      "featured": false,
+      "direct": true,
+      "tags": ["camiseta", "senderismo", "mujer", "quechua"]
+    }
+  ]
+}
