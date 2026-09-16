@@ -17,10 +17,10 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          path = Path('index.html')
+          path = Path('gh-pages/index.html')
           tag = '<script defer src="https://jorgesport.github.io/te-equipamos/universal-footer.js" data-te-universal-footer-loader></script>'
           if not path.exists():
-              raise SystemExit('No existe index.html en la raíz')
+              raise SystemExit('No existe gh-pages/index.html')
           html = path.read_text(encoding='utf-8')
           if 'data-te-universal-footer-loader' not in html:
               if '</body>' not in html:
@@ -35,6 +35,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
+          git add gh-pages/index.html
           git commit -m "Aplicar footer universal de Te Equipamos"
           git push
