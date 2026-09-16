@@ -36,6 +36,19 @@ jobs:
               html = html.replace('</body>', js + '</body>', 1)
           page.write_text(html, encoding='utf-8')
           PY
+      - name: Instalar footer universal Te Equipamos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          page = Path('gh-pages/index.html')
+          html = page.read_text(encoding='utf-8')
+          tag = '<script defer src="https://jorgesport.github.io/te-equipamos/universal-footer.js" data-te-universal-footer-loader></script>'
+          if 'data-te-universal-footer-loader' not in html:
+              if '</body>' not in html:
+                  raise SystemExit('No se encontró </body> para el footer universal')
+              html = html.replace('</body>', tag + '</body>', 1)
+              page.write_text(html, encoding='utf-8')
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
